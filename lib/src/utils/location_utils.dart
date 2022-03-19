@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:package_info/package_info.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:flutter/services.dart';
 
 class LocationUtils {
@@ -18,8 +18,7 @@ class LocationUtils {
       } else if (Platform.isAndroid) {
         String sha1;
         try {
-          sha1 = await _platform.invokeMethod(
-              'getSigningCertSha1', packageInfo.packageName);
+          sha1 = await _platform.invokeMethod('getSigningCertSha1', packageInfo.packageName);
         } on PlatformException {
           _appHeaderCache = {};
         }
